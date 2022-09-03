@@ -3,7 +3,7 @@
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let xTurn, isWinner
+let xTurn
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -31,8 +31,8 @@ board.addEventListener('click', function(evt) {
     oCheck(square)
   }
 })
+
 reset.addEventListener('click', function() {
-  clearBoard()
   start()
   reset.setAttribute('hidden', 0)
 })
@@ -41,12 +41,19 @@ reset.addEventListener('click', function() {
 /*-------------------------------- Functions --------------------------------*/
 start()
 
-
 function start()  {
   message.textContent = 'Click to play!'
+  sq0.textContent = ''
+  sq1.textContent = ''
+  sq2.textContent = ''
+  sq3.textContent = ''
+  sq4.textContent = ''
+  sq5.textContent = ''
+  sq6.textContent = ''
+  sq7.textContent = ''
+  sq8.textContent = ''
   pickStarter()
 }
-
 function pickStarter()  {
   let rand = Math.random()
   if (rand < .5)  {
@@ -56,7 +63,6 @@ function pickStarter()  {
   }
 }
 
-//xCheck and yCheck will handle all the state changes for a click
 function xCheck(square)  {
   if (square.textContent && xTurn === true) {
     message.textContent = `That aint it!`
@@ -115,16 +121,4 @@ function checkWin(play) {
     message.textContent = `That game was a tie!`
     reset.removeAttribute('hidden')
   }
-}
-
-function clearBoard() {
-  sq0.textContent = ''
-  sq1.textContent = ''
-  sq2.textContent = ''
-  sq3.textContent = ''
-  sq4.textContent = ''
-  sq5.textContent = ''
-  sq6.textContent = ''
-  sq7.textContent = ''
-  sq8.textContent = ''
 }
