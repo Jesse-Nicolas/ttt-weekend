@@ -12,6 +12,7 @@ let winner
 const message = document.querySelector('#message')
 const board = document.querySelector('.board')
 const reset = document.querySelector('button')
+const h1 = document.querySelector('h1')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -55,9 +56,7 @@ function render(lastPlay) {
   for (i=0; i<9; i++) {
     if  (board.children[i].innerHTML === lastPlay)  {
       boardArr[i] = board.children[i].innerHTML
-    }
-  }
-  console.log(boardArr)     //TEST
+    } }
   checkWin('X')
   checkWin('O')
   if (winner === null)  {
@@ -71,14 +70,15 @@ function render(lastPlay) {
   }
   else if (winner === true) {
     //renderWin
+    h1.textContent = `woo`
     if (xTurn)  {
-      message.textContent = `O won!`
+      message.textContent = `Congratulations O, you won!`
     } else  {
-      message.textContent = `X won!`
+      message.textContent = `Congratulations X, you won!`
     }
     reset.removeAttribute('hidden')
   }
-  else if (winner = 't')  {
+  else if (winner = 'tie')  {
     //renderTie
     message.textContent = `Issa tie!`
     reset.removeAttribute('hidden')
@@ -86,16 +86,26 @@ function render(lastPlay) {
 }
 
 
+function pickStarter()  {
+  let rand = Math.random()
+  if (rand < .5)  {
+    xTurn = true
+  }  else  {
+    xTurn = false
+  }
+}
+
 
 function init()  {
+  h1.textContent = 'Tic-Tac-Toe'
   message.textContent = `Click to play`
   xTurn = null
   boardArr = [null, null, null, null, null, null, null, null, null]
   for (i=0; i<9; i++) {
     board.children[i].innerHTML = boardArr[i]
   }
-  console.log(boardArr)     //TEST
   winner = null
+  pickStarter()
   render()
 }
 
@@ -127,32 +137,6 @@ function checkWin(play) {
     winner = true
   }
   else if (boardArr[0] && boardArr[1] && boardArr[2] && boardArr[3] && boardArr[4] && boardArr[5] && boardArr[6] && boardArr[7] && boardArr[8])  {
-    winner = 't'
+    winner = 'tie'
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
