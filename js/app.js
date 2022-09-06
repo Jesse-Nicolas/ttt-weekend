@@ -13,6 +13,7 @@ const message = document.querySelector('#message')
 const board = document.querySelector('.board')
 const reset = document.querySelector('button')
 const h1 = document.querySelector('h1')
+const image = document.querySelector('body')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -63,24 +64,30 @@ function render(lastPlay) {
     //keep playing
     if (xTurn)  {
       message.textContent = `It's X's turn!`
+      image.style.backgroundImage = "url('https://c.stocksy.com/a/ZvJ800/z9/1983229.jpg')"
     } 
     else if (!xTurn) {
       message.textContent = `It's O's turn!`
+      image.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVQS68jZ4OoIuxA-iJJpl71QW1Oy3lEtw8sA&usqp=CAU')"
     }
   }
   else if (winner === true) {
     //renderWin
-    h1.textContent = `woo`
+    image.style.backgroundImage = "url('https://as1.ftcdn.net/v2/jpg/02/89/02/42/1000_F_289024265_1O1FAY45Cc3qdc4fumUyS04wGbyaMQRE.jpg')"
+    h1.textContent = `woo!`
     if (xTurn)  {
-      message.textContent = `Congratulations O, you won!`
+      h1.textContent = `Congratulations O, you won!`
+      message.textContent = `Click 'Reset' to play again!`
     } else  {
-      message.textContent = `Congratulations X, you won!`
+      h1.textContent = `Congratulations X, you won!`
+      message.textContent = `Click 'Reset' to play again!`
     }
     reset.removeAttribute('hidden')
   }
   else if (winner = 'tie')  {
-    //renderTie
-    message.textContent = `Issa tie!`
+    image.style.backgroundImage = "url('https://as1.ftcdn.net/v2/jpg/02/89/02/42/1000_F_289024265_1O1FAY45Cc3qdc4fumUyS04wGbyaMQRE.jpg')"
+    h1.textContent = `Issa tie!`
+    message.textContent = `Click 'Reset' to play again!`
     reset.removeAttribute('hidden')
   }
 }

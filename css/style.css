@@ -8,23 +8,30 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-image: 
+    url("https://as1.ftcdn.net/v2/jpg/02/89/02/42/1000_F_289024265_1O1FAY45Cc3qdc4fumUyS04wGbyaMQRE.jpg"); 
 }
 
 section.board {
   display: grid;
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
-  grid-gap: 0vmin;
+  grid-gap: 5vmin;
   margin: 0 auto;
+  padding: 10px;
 }
 
 div {
+  color: aliceblue;
   border: 2px solid black;
   border-radius: 12px;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
   margin: 1px;
+  height: 65px;
+  width: 65px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 button  {
