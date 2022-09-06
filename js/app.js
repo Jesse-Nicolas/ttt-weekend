@@ -31,7 +31,6 @@ reset.addEventListener('click', function() {
 init()
 
 
-
 function handleClick(square) {
   if (square.textContent) {
     message.textContent = `That aint it!`
@@ -50,8 +49,6 @@ function handleClick(square) {
     }
   }
 }
-
-
 
 function render(lastPlay) {
   for (i=0; i<9; i++) {
@@ -86,12 +83,11 @@ function render(lastPlay) {
   }
   else if (winner = 'tie')  {
     image.style.backgroundImage = "url('https://as1.ftcdn.net/v2/jpg/02/89/02/42/1000_F_289024265_1O1FAY45Cc3qdc4fumUyS04wGbyaMQRE.jpg')"
-    h1.textContent = `Issa tie!`
+    h1.textContent = `It's a tie!`
     message.textContent = `Click 'Reset' to play again!`
     reset.removeAttribute('hidden')
   }
 }
-
 
 function pickStarter()  {
   let rand = Math.random()
@@ -101,7 +97,6 @@ function pickStarter()  {
     xTurn = false
   }
 }
-
 
 function init()  {
   h1.textContent = 'Tic-Tac-Toe'
@@ -115,8 +110,6 @@ function init()  {
   pickStarter()
   render()
 }
-
-
 
 function checkWin(play) {
   if ((boardArr[0] === play && boardArr[3] === play && boardArr[6] === play)  )   {
