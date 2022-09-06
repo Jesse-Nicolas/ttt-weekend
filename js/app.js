@@ -32,7 +32,7 @@ init()
 
 
 function handleClick(square) {
-  if (square.textContent) {
+  if (square.textContent || winner) {
     message.textContent = `That aint it!`
     return
   } 
@@ -86,6 +86,7 @@ function render(lastPlay) {
     h1.textContent = `It's a tie!`
     message.textContent = `Click 'Reset' to play again!`
     reset.removeAttribute('hidden')
+    winner = null
   }
 }
 
