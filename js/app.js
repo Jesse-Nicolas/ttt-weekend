@@ -137,7 +137,7 @@ function checkWin(play) {
   else if ((boardArr[2] === play && boardArr[4] === play && boardArr[6] === play)  )   {
     winner = true
   }
-  else if (boardArr[0] && boardArr[1] && boardArr[2] && boardArr[3] && boardArr[4] && boardArr[5] && boardArr[6] && boardArr[7] && boardArr[8])  {
+  else if (!winner && boardArr[0] && boardArr[1] && boardArr[2] && boardArr[3] && boardArr[4] && boardArr[5] && boardArr[6] && boardArr[7] && boardArr[8])  {
     winner = 'tie'
   }
 }
